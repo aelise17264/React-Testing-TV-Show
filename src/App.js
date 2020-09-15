@@ -8,6 +8,8 @@ import { formatSeasons } from "./utils/formatSeasons";
 import Episodes from "./components/Episodes";
 import "./styles.css";
 
+console.log(fetchShow())
+
 export default function App() {
   const [show, setShow] = useState(null);
   const [seasons, setSeasons] = useState([]);
@@ -22,7 +24,7 @@ export default function App() {
           // console.log(res)
            setSeasons(formatSeasons(res.data._embedded.episodes));
         });
-        fetchShow()
+       
      
   }, []);
 
@@ -40,7 +42,7 @@ export default function App() {
       <h1>{show.name}</h1>
       {parse(show.summary)}
       <Dropdown
-        data-testid='dropdown'
+      data-testid='dropdown'
         options={Object.keys(seasons)}
         onChange={handleSelect}
         value={selectedSeason || "Select a season"}
