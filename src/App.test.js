@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
-import userEvent from "@testing-library/user-event";
-import { fetchShow as mockFetchShow } from "./api/fetchShow"
+// import userEvent from "@testing-library/user-event";
+import { fetchShow, fetchShow as mockFetchShow } from "./api/fetchShow"
 
 jest.mock('./api/fetchShow');
 // console.log(mockFetchShow)
@@ -614,11 +614,11 @@ const showData = {
 
 
 //  test("Renders with no errors", () => {
-//  render(<App />);
+//  render(<App fetchShow={fetchShow} />);
 //  });
 
 
-test("render episodes when api is called", async () => {
+test("render episodes when api is called",  () => {
     mockFetchShow.mockResolvedValue(showData)
 
     // render(<App/>)
